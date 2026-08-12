@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cell Division Interactives - Baker Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e0e0e0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #888;
+            font-size: 1em;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .card-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        .mnemonic-reminder {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .mnemonic-reminder strong {
+            color: #856404;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1.1em;
+            }
+
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cell Division Interactives</h1>
+            <p class="subtitle">Learn Mitosis and Meiosis</p>
+            <p class="description">
+                Interactive activities to help you understand how cells divide. 
+                Drag and sequence the stages in the correct order!
+            </p>
+        </header>
+
+        <div class="cards-container">
+            <!-- Mitosis Card -->
+            <div class="card" onclick="window.location.href='mitosis-sequencing/index.html'">
+                <div class="card-icon">🔬</div>
+                <h2>Mitosis</h2>
+                <p>
+                    One cell → Two identical cells<br>
+                    For growth and repair
+                </p>
+                <a href="mitosis-sequencing/index.html" class="card-link">Start Mitosis Interactive</a>
+            </div>
+
+            <!-- Meiosis Card -->
+            <div class="card" onclick="window.location.href='meiosis-sequencing-v2/index.html'">
+                <div class="card-icon">🧬</div>
+                <h2>Meiosis</h2>
+                <p>
+                    One cell → Four unique cells<br>
+                    For making egg and sperm
+                </p>
+                <a href="meiosis-sequencing-v2/index.html" class="card-link">Start Meiosis Interactive</a>
+            </div>
+        </div>
+
+        <div class="mnemonic-reminder">
+            <strong>💡 Remember ProMAT:</strong> Prophase → Metaphase → Anaphase → Telophase
+        </div>
+
+        <footer>
+            <p><strong>Created for The Baker Center for Children & Families</strong></p>
+            <p>Science Curriculum - Biology Standard HS-LS3-1</p>
+        </footer>
+    </div>
+</body>
+</html>
