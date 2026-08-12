@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meiosis Sequencing Interactive - Baker Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sequence the Stages of Meiosis</h1>
+            <p class="instructions">Drag or click stages into the correct order.</p>
+            <div class="mnemonic-box">
+                <span class="mnemonic-label">Remember ProMAT:</span>
+                <span class="mnemonic-text"><strong>Pro</strong>phase → <strong>M</strong>etaphase → <strong>A</strong>naphase → <strong>T</strong>elophase</span>
+            </div>
+            <div class="pmat-reference">
+                <div class="pmat-stage">
+                    <img src="PMAT/prophase.jpg" alt="Prophase">
+                    <p>Prophase</p>
+                </div>
+                <div class="pmat-stage">
+                    <img src="PMAT/metaphase.jpg" alt="Metaphase">
+                    <p>Metaphase</p>
+                </div>
+                <div class="pmat-stage">
+                    <img src="PMAT/anaphase.jpg" alt="Anaphase">
+                    <p>Anaphase</p>
+                </div>
+                <div class="pmat-stage">
+                    <img src="PMAT/telophase.jpg" alt="Telophase">
+                    <p>Telophase</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Vocabulary Box -->
+            <div class="vocab-box">
+                <h3>📚 Key Vocabulary:</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="vocab-with-image">
+                            <img src="images/interphase.png" alt="Diploid cell" class="vocab-img">
+                            <div class="vocab-text">
+                                <strong>Diploid (2n):</strong> Cell has 2 sets of chromosomes (like at the start)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-with-image">
+                            <img src="images/cytokinesis2.png" alt="Haploid cells" class="vocab-img">
+                            <div class="vocab-text">
+                                <strong>Haploid (n):</strong> Cell has 1 set of chromosomes (at the end)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-with-image">
+                            <img src="images/prophase1.png" alt="Crossing over" class="vocab-img">
+                            <div class="vocab-text">
+                                <strong>Crossing Over:</strong> Chromosomes swap DNA pieces (causes mutations)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-with-image">
+                            <img src="images/anaphase1.png" alt="Random segregation" class="vocab-img">
+                            <div class="vocab-text">
+                                <strong>Random Segregation:</strong> Chromosomes split randomly into cells
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="vocab-with-image">
+                            <img src="images/cytokinesis1.png" alt="Daughter cells" class="vocab-img">
+                            <div class="vocab-text">
+                                <strong>Daughter Cells:</strong> New cells made after division
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Control Panel -->
+            <div class="controls">
+                <button id="checkBtn" class="btn btn-primary">Check My Answer</button>
+                <button id="hintBtn" class="btn btn-secondary">Show Hint</button>
+                <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                <button id="showAnswerBtn" class="btn btn-info">Show Answer</button>
+                <button id="toggleLabelsBtn" class="btn btn-toggle">Hide Labels</button>
+            </div>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <p><strong>Goal:</strong> Show how DNA moves from parent cell to offspring cells.</p>
+            </div>
+
+            <!-- Feedback Area -->
+            <div id="feedback" class="feedback hidden"></div>
+
+            <!-- TWO COLUMN LAYOUT -->
+            <div class="interactive-layout">
+                
+                <!-- LEFT SIDE: Available Stages -->
+                <div class="left-column">
+                    <h2>Available Stages</h2>
+                    <div class="stages-bank" id="stagesBank">
+                        <!-- Stage cards will be here -->
+                        <div class="stage-card" draggable="true" data-stage="stage1" tabindex="0">
+                            <img src="images/interphase.png" alt="Interphase">
+                            <p class="stage-label">Interphase</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage2" tabindex="0">
+                            <img src="images/prophase1.png" alt="Prophase I">
+                            <p class="stage-label">Prophase I</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage3" tabindex="0">
+                            <img src="images/metaphase1.png" alt="Metaphase I">
+                            <p class="stage-label">Metaphase I</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage4" tabindex="0">
+                            <img src="images/anaphase1.png" alt="Anaphase I">
+                            <p class="stage-label">Anaphase I</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage5" tabindex="0">
+                            <img src="images/telophase1.png" alt="Telophase I">
+                            <p class="stage-label">Telophase I</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage6" tabindex="0">
+                            <img src="images/cytokinesis1.png" alt="Cytokinesis I">
+                            <p class="stage-label">Cytokinesis I</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage7" tabindex="0">
+                            <img src="images/prophase2.png" alt="Prophase II">
+                            <p class="stage-label">Prophase II</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage8" tabindex="0">
+                            <img src="images/metaphase2.png" alt="Metaphase II">
+                            <p class="stage-label">Metaphase II</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage9" tabindex="0">
+                            <img src="images/anaphase2.png" alt="Anaphase II">
+                            <p class="stage-label">Anaphase II</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage10" tabindex="0">
+                            <img src="images/telophase2.png" alt="Telophase II">
+                            <p class="stage-label">Telophase II</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage11" tabindex="0">
+                            <img src="images/cytokinesis2.png" alt="Cytokinesis II">
+                            <p class="stage-label">Cytokinesis II</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Drop Zones (Meiosis I and II side by side) -->
+                <div class="right-column">
+                    <h2>Your Sequence</h2>
+                    
+                    <div class="meiosis-container">
+                        <!-- Meiosis I -->
+                        <div class="meiosis-section">
+                            <div class="section-label">Meiosis I</div>
+                            <div class="drop-zones-group">
+                                <div class="drop-zone" data-position="1" data-correct="stage1">
+                                    <span class="position-number">1</span>
+                                </div>
+                                <div class="drop-zone" data-position="2" data-correct="stage2">
+                                    <span class="position-number">2</span>
+                                </div>
+                                <div class="drop-zone" data-position="3" data-correct="stage3">
+                                    <span class="position-number">3</span>
+                                </div>
+                                <div class="drop-zone" data-position="4" data-correct="stage4">
+                                    <span class="position-number">4</span>
+                                </div>
+                                <div class="drop-zone" data-position="5" data-correct="stage5">
+                                    <span class="position-number">5</span>
+                                </div>
+                                <div class="drop-zone" data-position="6" data-correct="stage6">
+                                    <span class="position-number">6</span>
+                                </div>
+                            </div>
+                            <div class="summary-box">
+                                <h4>🔑 What Happened in Meiosis I:</h4>
+                                <div class="summary-item">
+                                    <img src="images/prophase1.png" alt="Crossing over" class="summary-img">
+                                    <p><strong>Crossing Over</strong> - DNA swaps during Prophase I</p>
+                                </div>
+                                <div class="summary-item">
+                                    <img src="images/anaphase1.png" alt="Chromosomes separate" class="summary-img">
+                                    <p><strong>Separation</strong> - Chromosome pairs split in Anaphase I</p>
+                                </div>
+                                <div class="summary-result">
+                                    <span class="result-icon">✅</span>
+                                    <strong>Result:</strong> 2 daughter cells with half the DNA
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Meiosis II -->
+                        <div class="meiosis-section">
+                            <div class="section-label">Meiosis II</div>
+                            <div class="drop-zones-group">
+                                <div class="drop-zone" data-position="7" data-correct="stage7">
+                                    <span class="position-number">7</span>
+                                </div>
+                                <div class="drop-zone" data-position="8" data-correct="stage8">
+                                    <span class="position-number">8</span>
+                                </div>
+                                <div class="drop-zone" data-position="9" data-correct="stage9">
+                                    <span class="position-number">9</span>
+                                </div>
+                                <div class="drop-zone" data-position="10" data-correct="stage10">
+                                    <span class="position-number">10</span>
+                                </div>
+                                <div class="drop-zone" data-position="11" data-correct="stage11">
+                                    <span class="position-number">11</span>
+                                </div>
+                            </div>
+                            <div class="summary-box">
+                                <h4>🔑 What Happened in Meiosis II:</h4>
+                                <div class="summary-item">
+                                    <img src="images/anaphase2.png" alt="Sister chromatids separate" class="summary-img">
+                                    <p><strong>Sister Chromatids Split</strong> - Separate in Anaphase II</p>
+                                </div>
+                                <div class="summary-item">
+                                    <img src="images/cytokinesis2.png" alt="Four cells" class="summary-img">
+                                    <p><strong>Four Unique Cells</strong> - Each has different DNA</p>
+                                </div>
+                                <div class="summary-result">
+                                    <span class="result-icon">✅</span>
+                                    <strong>Result:</strong> 4 haploid (n) daughter cells with genetic variation
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Key Concepts -->
+        <div class="key-concepts">
+            <h3>🔑 What to Remember:</h3>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <div class="concept-number">1→2→4</div>
+                    <p>One cell becomes four <strong>daughter cells</strong></p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">2n → n</div>
+                    <p><strong>Diploid (2n)</strong> becomes <strong>Haploid (n)</strong></p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">🧬</div>
+                    <p>Makes egg and sperm cells (gametes)</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">🔀</div>
+                    <p><strong>Crossing over</strong> creates genetic variation</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">🎲</div>
+                    <p><strong>Random segregation</strong> of chromosomes</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">⚠️</div>
+                    <p>Crossing over is important for <strong>mutations</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Created for The Baker Center for Children & Families</p>
+            <p>Science Curriculum - Biology Standard HS-LS3-1</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
