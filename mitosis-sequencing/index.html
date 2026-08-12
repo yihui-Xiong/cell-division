@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitosis Sequencing Interactive - Baker Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sequence the Stages of Mitosis</h1>
+            <p class="instructions">Drag or click stages into the correct order.</p>
+            <div class="mnemonic-box">
+                <span class="mnemonic-label">Remember ProMAT:</span>
+                <span class="mnemonic-text"><strong>Pro</strong>phase → <strong>M</strong>etaphase → <strong>A</strong>naphase → <strong>T</strong>elophase</span>
+            </div>
+            <div class="pmat-reference">
+                <div class="pmat-stage">
+                    <img src="PMAT/prophase.jpg" alt="Prophase">
+                    <p>Prophase</p>
+                </div>
+                <div class="pmat-stage">
+                    <img src="PMAT/metaphase.jpg" alt="Metaphase">
+                    <p>Metaphase</p>
+                </div>
+                <div class="pmat-stage">
+                    <img src="PMAT/anaphase.jpg" alt="Anaphase">
+                    <p>Anaphase</p>
+                </div>
+                <div class="pmat-stage">
+                    <img src="PMAT/telophase.jpg" alt="Telophase">
+                    <p>Telophase</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Control Panel -->
+            <div class="controls">
+                <button id="checkBtn" class="btn btn-primary">Check My Answer</button>
+                <button id="hintBtn" class="btn btn-secondary">Show Hint</button>
+                <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                <button id="showAnswerBtn" class="btn btn-info">Show Answer</button>
+                <button id="toggleLabelsBtn" class="btn btn-toggle">Hide Labels</button>
+            </div>
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <p><strong>Goal:</strong> Show how one cell divides into two identical cells for growth and repair.</p>
+            </div>
+
+            <!-- Feedback Area -->
+            <div id="feedback" class="feedback hidden"></div>
+
+            <!-- TWO COLUMN LAYOUT -->
+            <div class="interactive-layout">
+                
+                <!-- LEFT SIDE: Available Stages -->
+                <div class="left-column">
+                    <h2>Available Stages</h2>
+                    <div class="stages-bank" id="stagesBank">
+                        <!-- Stage cards will be here -->
+                        <div class="stage-card" draggable="true" data-stage="stage1" tabindex="0">
+                            <img src="images/interphase.png" alt="Interphase">
+                            <p class="stage-label">Interphase</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage2" tabindex="0">
+                            <img src="images/prophase.png" alt="Prophase">
+                            <p class="stage-label">Prophase</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage3" tabindex="0">
+                            <img src="images/prometaphase.png" alt="Prometaphase">
+                            <p class="stage-label">Prometaphase</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage4" tabindex="0">
+                            <img src="images/metaphase.png" alt="Metaphase">
+                            <p class="stage-label">Metaphase</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage5" tabindex="0">
+                            <img src="images/anaphase.png" alt="Anaphase">
+                            <p class="stage-label">Anaphase</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage6" tabindex="0">
+                            <img src="images/telophase.png" alt="Telophase">
+                            <p class="stage-label">Telophase</p>
+                        </div>
+                        <div class="stage-card" draggable="true" data-stage="stage7" tabindex="0">
+                            <img src="images/cytokinesis.png" alt="Cytokinesis">
+                            <p class="stage-label">Cytokinesis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT SIDE: Drop Zones -->
+                <div class="right-column">
+                    <h2>Your Sequence</h2>
+                    
+                    <div class="drop-zones-group-single">
+                        <div class="drop-zone" data-position="1" data-correct="stage1">
+                            <span class="position-number">1</span>
+                        </div>
+                        <div class="drop-zone" data-position="2" data-correct="stage2">
+                            <span class="position-number">2</span>
+                        </div>
+                        <div class="drop-zone" data-position="3" data-correct="stage3">
+                            <span class="position-number">3</span>
+                        </div>
+                        <div class="drop-zone" data-position="4" data-correct="stage4">
+                            <span class="position-number">4</span>
+                        </div>
+                        <div class="drop-zone" data-position="5" data-correct="stage5">
+                            <span class="position-number">5</span>
+                        </div>
+                        <div class="drop-zone" data-position="6" data-correct="stage6">
+                            <span class="position-number">6</span>
+                        </div>
+                        <div class="drop-zone" data-position="7" data-correct="stage7">
+                            <span class="position-number">7</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Key Concepts -->
+        <div class="key-concepts">
+            <h3>🔑 What to Remember:</h3>
+            <div class="concept-grid">
+                <div class="concept-card">
+                    <div class="concept-number">1→2</div>
+                    <p>One cell becomes two identical cells</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">2n→2n</div>
+                    <p>Diploid cells stay diploid</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">🔄</div>
+                    <p>For growth and repair</p>
+                </div>
+                <div class="concept-card">
+                    <div class="concept-number">ProMAT</div>
+                    <p>Prophase → Metaphase → Anaphase → Telophase</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Created for The Baker Center for Children & Families</p>
+            <p>Science Curriculum - Biology Standard HS-LS3-1</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
